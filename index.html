@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MATE &amp; HomeChef – Two apps. One better day.</title>
+<meta name="description" content="MATE tracks your money. HomeChef finds your next meal. Two student-built Android apps, free to download.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="loading">
+
+<div class="loader" id="loader">
+  <div class="l-tiles"><i></i><i></i><i></i></div>
+  <h2>Your Apps<br>Under Control</h2>
+  <div class="l-count"><span id="lc">0</span>%</div>
+</div>
+
+<div class="bgfx"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><i class="orb o4"></i><i class="dots"></i><i class="grain"></i></div>
+<div class="glow" id="glow"></div>
+<canvas id="gl"></canvas>
+
+<!-- Music -->
+<div class="music" id="music">
+  <div class="mcard lg" id="mcard">
+    <div class="mrow">
+      <img class="cover" id="cover" src="assets/album.jpg" alt="Album cover">
+      <div class="meta"><b>Pink + White</b><span>Frank Ocean</span></div>
+      <svg class="wave" viewBox="0 0 24 24"><rect x="2" y="9" width="2.4" height="6" rx="1.2"/><rect x="7" y="5" width="2.4" height="14" rx="1.2"/><rect x="12" y="2" width="2.4" height="20" rx="1.2"/><rect x="17" y="6" width="2.4" height="12" rx="1.2"/></svg>
+    </div>
+    <div class="mprog"><span id="tc">0:00</span><div class="mbar" id="mbar"><i id="pf"></i></div><span id="td">-0:00</span></div>
+    <div class="mctl">
+      <button id="rw" aria-label="Rewind 10 seconds"><svg viewBox="0 0 32 32"><path d="M16 6V2L9 7l7 5V8a9 9 0 1 1-9 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="16" y="22" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor">10</text></svg></button>
+      <button id="pp" class="big" aria-label="Play or pause"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4.2" height="14" rx="1.4" fill="currentColor"/><rect x="13.8" y="5" width="4.2" height="14" rx="1.4" fill="currentColor"/></svg></button>
+      <button id="ff" aria-label="Forward 10 seconds"><svg viewBox="0 0 32 32"><path d="M16 6V2l7 5-7 5V8a9 9 0 1 0 9 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><text x="16" y="22" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor">10</text></svg></button>
+    </div>
+  </div>
+  <button class="mbtn lg" id="mbtn" aria-label="Music">
+    <span class="ring"></span>
+    <svg viewBox="0 0 32 32" class="logo"><defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9c8ff"/><stop offset="1" stop-color="#ffd98a"/></linearGradient></defs>
+      <g fill="url(#mg)"><rect class="b b1" x="4" y="12" width="3.6" height="8" rx="1.8"/><rect class="b b2" x="9.6" y="7" width="3.6" height="18" rx="1.8"/><rect class="b b3" x="15.2" y="3" width="3.6" height="26" rx="1.8"/><rect class="b b4" x="20.8" y="8" width="3.6" height="16" rx="1.8"/><rect class="b b5" x="26.4" y="13" width="3.2" height="6" rx="1.6"/></g>
+      <path class="slash" d="M5 4.5 27 27.5" stroke="#fff" stroke-width="2.6" stroke-linecap="round" fill="none"/></svg>
+  </button>
+  <audio id="aud-el" src="audio/music.mp3" preload="metadata" loop></audio>
+</div>
+
+<header class="top">
+  <a class="brand" href="#home"><span class="dot"></span>MATE <em>&amp;</em> HomeChef</a>
+  <div class="top-r">
+    <a class="btn white sm hide-s" href="#download">Download</a>
+    <button class="menu-b glass" id="menuB" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</header>
+<div class="menu" id="menu">
+  <a href="#home">Home</a><a href="#apps">The Apps</a><a href="#about">About us</a><a href="#faq">FAQ</a><a href="#download">Download</a>
+</div>
+
+<section class="hero" id="home" data-theme="none">
+  <h1 class="split"><span>Two Apps.</span><span>One Better Day.</span></h1>
+  <p class="lead">MATE keeps your money in check. HomeChef turns what’s in your kitchen into dinner. Built by two students, free on Android.</p>
+  <a class="btn white magnet" href="#download">Download Free</a>
+  <p class="note">Free APK · No sign-up · No credit card</p>
+</section>
+
+<section class="meet" id="meet" data-theme="none">
+  <p class="eyebrow rv">Scroll to explore</p>
+  <h2 class="rv">Meet Your Two New Companions.</h2>
+  <p class="msub rv">Follow the phone as you scroll. It shows you what each app does, one step at a time.</p>
+  <div class="stage glass">
+    <div class="slot" data-slot="meet"></div>
+    <span class="float f1 glass">💰 RM 320 saved</span>
+    <span class="float f2 glass">🍳 5 of 5 ingredients ✔</span>
+    <span class="float f3 glass">🎯 Laptop goal 72%</span>
+  </div>
+</section>
+
+<section class="pin" id="mate-s" data-theme="mate">
+<div class="pin-in duo">
+  <div class="copy rv">
+    <h2>Stop<br>Overspending.</h2>
+    <p>Log an expense in two taps. Lock money into goals. See exactly where your month went, without opening a spreadsheet.</p>
+    <a class="link violet" href="apk/MATE.apk" download>Get MATE ↓</a>
+  </div>
+  <div class="slotbox"><div class="slot" data-slot="mate-s"></div></div>
+</div>
+</section>
+
+<section class="vid" id="mate-v" data-theme="mate">
+  <p class="eyebrow rv">Watch the overview</p>
+  <h2 class="rv">See MATE in action.</h2>
+  <p class="vsub rv">Quick expenses, savings goals and clear charts in one calm tour.</p>
+  <ul class="tags rv"><li>Two-tap logging</li><li>Virtual Tabung</li><li>Visual charts</li><li>Spending alerts</li><li>Works offline</li><li>Made for Malaysia</li></ul>
+  <div class="vpin"><div class="vwrap"><div class="vframe glass" data-app="mate">
+    <video playsinline preload="metadata" src="video/mate.mp4"></video>
+    <div class="slot vs" data-slot="mate-v"></div>
+    <button class="play" aria-label="Watch the MATE overview"><i></i>Watch the overview</button>
+  </div></div></div>
+  <p class="cap rv">A short tour of MATE: logging an expense, filling a Tabung goal and reading your month at a glance.</p>
+  <blockquote class="pull glass rv"><b>83.8%</b> of the 70 students we surveyed would log daily spending if it only takes a couple of taps. So that is exactly how MATE works.</blockquote>
+</section>
+
+<section class="pin" id="hc-s" data-theme="hc">
+<div class="pin-in duo rev">
+  <div class="copy rv">
+    <h2>Never Wonder<br>What To Cook.</h2>
+    <p>Tap the ingredients you already have. HomeChef finds recipes that fit, with videos and nutrition ready to go.</p>
+    <a class="link gold" href="apk/HomeChef.apk" download>Get HomeChef ↓</a>
+  </div>
+  <div class="slotbox"><div class="slot" data-slot="hc-s"></div></div>
+</div>
+</section>
+
+<section class="vid" id="hc-v" data-theme="hc">
+  <p class="eyebrow rv">Watch the overview</p>
+  <h2 class="rv">See HomeChef in action.</h2>
+  <p class="vsub rv">Pick your ingredients, get a recipe, press play on the chef video.</p>
+  <ul class="tags rv"><li>Ingredient matching</li><li>Guest browsing</li><li>English &amp; Malay</li><li>Chef videos</li><li>Nutrition info</li><li>Helper chat</li></ul>
+  <div class="vpin"><div class="vwrap"><div class="vframe glass" data-app="hc">
+    <video playsinline preload="metadata" src="video/homechef.mp4"></video>
+    <div class="slot vs" data-slot="hc-v"></div>
+    <button class="play" aria-label="Watch the HomeChef overview"><i></i>Watch the overview</button>
+  </div></div></div>
+  <p class="cap rv">A short tour of HomeChef: choosing ingredients, finding a recipe and following along with a chef.</p>
+  <blockquote class="pull glass rv">The real problem isn’t a lack of recipes. It’s not knowing what to cook with what you already have.<small>The idea behind HomeChef</small></blockquote>
+</section>
+
+<section class="stat" id="why" data-theme="none">
+  <p class="eyebrow rv">What 70 students told us</p>
+  <h2 class="rv">Up To <span class="num" data-to="83.8" data-dec="1">0</span>%</h2>
+  <p class="rv">would log their daily spending, as long as it takes just a couple of taps. That one answer shaped everything in MATE.</p>
+  <div class="mini rv"><div><b class="num" data-to="97.1" data-dec="1">0</b>%<small>want an app built for Malaysians</small></div><div><b class="num" data-to="52.9" data-dec="1">0</b>%<small>say overspending is their biggest obstacle</small></div><div><b class="num" data-to="61.8" data-dec="1">0</b>%<small>prefer manual and automatic saving together</small></div></div>
+</section>
+
+<section class="aud" id="aud">
+  <div class="aud-in">
+    <h2 class="rv">Made for people like you</h2>
+    <div class="rail" id="rail">
+      <article class="glass"><div class="av"><i>🎓</i><i>📚</i><i>☕</i></div><h3>Students</h3><p>Make the allowance last until the end of the month.</p></article>
+      <article class="glass"><div class="av"><i>🥄</i><i>🍳</i><i>🔰</i></div><h3>Beginners</h3><p>Simple steps and videos, no cooking experience needed.</p></article>
+      <article class="glass"><div class="av"><i>👨‍👩‍👧</i><i>🏠</i><i>🍛</i></div><h3>Busy families</h3><p>Dinner sorted from whatever is already in the fridge.</p></article>
+      <article class="glass"><div class="av"><i>🎯</i><i>🐖</i><i>📈</i></div><h3>Savers</h3><p>Goal buckets that show progress, not guilt.</p></article>
+      <article class="glass"><div class="av"><i>🧑‍🍳</i><i>🥗</i><i>🌶️</i></div><h3>Home cooks</h3><p>New ideas, nutrition info and a helper when you get stuck.</p></article>
+      <article class="glass"><div class="av"><i>🌏</i><i>🇲🇾</i><i>💬</i></div><h3>Everyone</h3><p>English and Malay, wherever you are in Malaysia.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="apps" id="apps">
+  <h2 class="rv">Pick Your Companion</h2>
+  <p class="sub rv">Hold and drag the phone. Tap its sides to flip through screens.</p>
+  <div class="showcase">
+    <div class="show-phone">
+      <div class="viewer" id="viewer" data-slot="viewer"></div>
+      <div class="dots-n" id="dots"><b class="on"></b><b></b><b></b></div>
+      <div class="tabs glass" id="tabs"><button class="on" data-app="mate">MATE</button><button data-app="hc">HomeChef</button><i></i></div>
+    </div>
+    <div class="show-info glass" id="info"></div>
+  </div>
+</section>
+
+<section class="more">
+  <h2 class="rv">Get Even More</h2>
+  <div class="two">
+    <article class="glass rv">
+      <h3>Clear visuals</h3><p>Charts and progress bars turn numbers into answers at a glance.</p>
+      <div class="bars big-bars"><i style="height:35%"></i><i style="height:60%"></i><i style="height:45%"></i><i style="height:88%"></i><i style="height:55%"></i><i style="height:72%"></i><i style="height:40%"></i></div>
+    </article>
+    <article class="glass rv">
+      <h3>Two languages</h3><p>Switch between English and Malay any time. Try it:</p>
+      <div class="lang"><button class="on" data-l="en">EN</button><button data-l="ms">BM</button></div>
+      <p class="demo" id="demo">What should I cook today?</p>
+    </article>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2 class="rv">About us</h2>
+  <p class="about-txt rv">We study Computer Technology (Big Data) at TVET MARA Lumut. For the Mobile Application Development course (DFD40143), each of us picked an everyday struggle and built an app to fix it. This website puts both side by side so you can try them yourself.</p>
+  <div class="people">
+    <article class="pcard tilt rv violet">
+      <div class="ph"><img src="assets/amalia.jpg" alt="Nur Amalia Safia" onerror="this.remove()"><div class="ph-ph"><span>NA</span></div></div>
+      <div class="pinfo"><span class="badge">Creator of MATE</span><h3>Nur Amalia Safia</h3><p>Tired of empty wallets before month end, she built a friendly engine to track spending and save with purpose.</p></div>
+    </article>
+    <article class="pcard tilt rv gold">
+      <div class="ph"><img src="assets/aiman.jpg" alt="Aiman bin Razali" onerror="this.remove()"><div class="ph-ph"><span>AR</span></div></div>
+      <div class="pinfo"><span class="badge">Creator of HomeChef</span><h3>Aiman bin Razali</h3><p>Tired of staring at a full fridge with no idea what to cook, he built an app that does the thinking for you.</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <h2 class="rv">Questions?</h2>
+  <div class="acc rv" id="acc">
+    <div class="q open show"><button><span>Are the apps free?</span><i></i></button><div class="a"><div><p>Yes. Both apps are free to download and use.</p></div></div></div>
+    <div class="q"><button><span>How do I install an APK?</span><i></i></button><div class="a"><div><p>Download the file on your Android phone, open it, and allow “Install unknown apps” for your browser when asked.</p></div></div></div>
+    <div class="q"><button><span>Do I need internet?</span><i></i></button><div class="a"><div><p>MATE works offline and keeps your data on your phone. HomeChef needs a connection for recipes and videos.</p></div></div></div>
+    <div class="q"><button><span>Do I need an account?</span><i></i></button><div class="a"><div><p>MATE needs none. In HomeChef you can browse as a guest and log in only to like, save or comment.</p></div></div></div>
+    <div class="q"><button><span>Who made these?</span><i></i></button><div class="a"><div><p>Nur Amalia Safia (MATE) and Aiman bin Razali (HomeChef), as separate projects for DFD40143 at TVET MARA Lumut.</p></div></div></div>
+  </div>
+</section>
+
+<section class="dl" id="download" data-theme="none">
+  <h2 class="rv">Try Them Today!</h2>
+  <p class="dl-sub rv">Take control of your money and your meals. Free, in one tap.</p>
+  <div class="orbit" id="orbit">
+    <div class="oslot" data-slot="oMate"></div>
+    <div class="oslot" data-slot="oHc"></div>
+  </div>
+  <div class="dl-row">
+    <div class="dcol rv">
+      <a class="dbtn glass violet magnet" href="apk/MATE.apk" download><span class="ic">M</span><span><small>Download</small><b>MATE for Android</b></span></a>
+      <div class="qr glass"><img src="assets/qr-mate.png" alt="Scan to install MATE" width="160"><small>Scan to install on your phone</small></div>
+    </div>
+    <div class="dcol rv">
+      <a class="dbtn glass gold magnet" href="apk/HomeChef.apk" download><span class="ic">H</span><span><small>Download</small><b>HomeChef for Android</b></span></a>
+      <div class="qr glass"><img src="assets/qr-homechef.png" alt="Scan to install HomeChef" width="160"><small>Scan to install on your phone</small></div>
+    </div>
+  </div>
+  <ol class="steps">
+    <li class="glass rv"><b>1</b><h4>Download</h4><p>Tap the button for the app you want.</p></li>
+    <li class="glass rv"><b>2</b><h4>Allow install</h4><p>Allow “Install unknown apps” when your phone asks.</p></li>
+    <li class="glass rv"><b>3</b><h4>Open &amp; enjoy</h4><p>Launch it from your home screen. That’s it.</p></li>
+  </ol>
+</section>
+
+<section class="tech" id="tech" data-theme="none">
+  <div class="tech-in">
+    <p class="t-eye rv">TECH STACK</p>
+    <h2 class="rv">Built with <em>modern tools</em>.</h2>
+  </div>
+  <div class="pills"><div class="ptrack">
+    <span class="pill">GitHub Pages</span><span class="pill">Flutter</span><span class="pill">Dart</span><span class="pill">SQLite</span><span class="pill">Hive</span><span class="pill">React Native</span><span class="pill">Expo</span><span class="pill">Firebase</span><span class="pill">EAS Build</span>
+    <span class="pill">GitHub Pages</span><span class="pill">Flutter</span><span class="pill">Dart</span><span class="pill">SQLite</span><span class="pill">Hive</span><span class="pill">React Native</span><span class="pill">Expo</span><span class="pill">Firebase</span><span class="pill">EAS Build</span>
+  </div></div>
+</section>
+
+<footer>
+  <nav><a href="#home">Home</a><a href="#apps">The Apps</a><a href="#about">About us</a><a href="#faq">FAQ</a><a href="#download">Download</a></nav>
+  <p>© 2026 · DFD40143 Mobile Application Development · TVET MARA Lumut<br>Prepared for Mohd Shukri bin Muhamad Husin</p>
+</footer>
+
+<script defer src="js/vendor/three.min.js"></script>
+<script defer src="js/vendor/GLTFLoader.js"></script>
+<script defer src="js/vendor/qrcode.js"></script>
+<script defer src="assets/screens.js"></script>
+<script defer src="assets/iphone.glb.js"></script>
+<script defer src="js/main.js"></script>
+</body>
+</html>
